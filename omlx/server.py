@@ -3952,7 +3952,8 @@ async def create_systemone(
                 "model": request.model,
                 "answers": result["answers"],
                 "usage": {
-                    "input_tokens": input_tokens, "output_tokens": 0,
+                    "input_tokens": input_tokens,
+                    "output_tokens": 0,
                     **result.get("usage", {}),
                 },
             },

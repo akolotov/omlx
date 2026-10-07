@@ -486,8 +486,10 @@ def decision_kind(model_path: Path, config: dict | None = None) -> DecisionKind 
     if config.get("model_type") == "t5" and all(
         (model_path / name).is_file()
         for name in (
-            "model.safetensors", "head.safetensors",
-            "decisions_config.json", "tokenizer.json",
+            "model.safetensors",
+            "head.safetensors",
+            "decisions_config.json",
+            "tokenizer.json",
         )
     ):
         return "frida"

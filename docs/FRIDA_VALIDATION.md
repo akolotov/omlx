@@ -4,7 +4,9 @@ The implementation was tested on 2026-10-07 with an Apple M4 and 32 GiB of unifi
 
 ## Tests and parity
 
-The full CI command passed with 16,580 tests passed and 1,261 skipped. It reported three existing syntax warnings in `test_admin_enhanced_readability.py`. The command was `python -m pytest tests/ -m "not slow and not integration" -n 3 --dist loadgroup`. The final targeted decision, API, discovery, configuration, profile, and pool run passed all 1,138 tests. Ruff and `git diff --check` passed for the new adapter and tests.
+The full CI command passed with 16,585 tests passed and 1,261 skipped. The command was `python -m pytest tests/ -m "not slow and not integration" -n 3 --dist loadgroup`. The targeted decision, API, discovery, configuration, profile, and pool run passed all 1,138 tests. Ruff and `git diff --check` passed for the new adapter and tests.
+
+The localization follow-up passed 443 targeted tests and three JavaScript dashboard tests. FRIDA precision labels render from the translation catalogs in all ten locales. `scripts/normalize_i18n.py` and the CSS rebuild completed. Black formatting passes for the added Python code relative to upstream `main`.
 
 Both real-weight test cases passed, one for FP32 and one for BF16. Each precision covered four requests and ten decisions. The requests included Russian text, all four question types, JSON states and criteria, multiple rows, state caching, and truncation. Adapter margins matched the corresponding upstream execution path with `atol=1e-3, rtol=1e-3`. The largest adapter/upstream margin difference was `4.76837158203125e-7` in FP32 and `0.0` in BF16. Decisions and complete ranking orders matched upstream.
 
