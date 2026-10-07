@@ -208,5 +208,3 @@ Run `python -m pytest -q tests/test_video.py tests/test_image_utils.py tests/tes
 # Engine idle timing tests
 
 Run `python -m pytest -q tests/test_engine_pool.py tests/test_active_models_visibility.py` to check that lease completion refreshes the LRU/TTL timestamp and that busy models report zero idle time. The cases cover a request longer than its TTL, release with a pending unload, cancelled release, redundant releases, and models with a held lease, an active request, or a waiting request.
-
-FRIDA-Decisions adapter and lifecycle tests run in `tests/test_frida.py`. Opt-in tests with real local weights run in `tests/test_frida_integration.py`. See [FRIDA configuration and validation](FRIDA.md) for the pinned release, weight revision, and commands.
